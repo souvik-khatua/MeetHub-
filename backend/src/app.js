@@ -19,13 +19,13 @@ app.use(cors());
 app.use(express.json({ limit: "40kb" }));
 app.use(express.urlencoded({ limit: "40kb", extended: true }));
 
-app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/users",userRoutes);
 
 const start = async () => {
     app.set("mongo_user")
-    const connectionDb = await mongoose.connect("mongodb+srv://imdigitalashish:imdigitalashish@cluster0.cujabk4.mongodb.net/")
+    const connectionDb = await mongoose.connect("mongodb+srv://souvik:souvik085231@cluster0.56e5te2.mongodb.net/")
 
-    console.log(`MONGO Connected DB HOst: ${connectionDb.connection.host}`)
+    console.log(`MONGO Connected DB Host: ${connectionDb.connection.host}`)
     server.listen(app.get("port"), () => {
         console.log("LISTENIN ON PORT 8000")
     });
@@ -37,3 +37,5 @@ const start = async () => {
 
 
 start();
+
+

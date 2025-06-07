@@ -20,18 +20,28 @@ export default function History() {
 
     const routeTo = useNavigate();
 
-    useEffect(() => {
-        const fetchHistory = async () => {
-            try {
-                const history = await getHistoryOfUser();
-                setMeetings(history);
-            } catch {
-                // IMPLEMENT SNACKBAR
-            }
-        }
+  useEffect(() => {
+    const fetchHistory = async () => {
+        try {
+            const history = await getHistoryOfUser();
+            console.log("Fetched history:", history);
 
-        fetchHistory();
-    }, [])
+            // Check if history is an array
+            if (Array.isArray(history)) {
+                setMeetings(history);
+            } else if (history && Array.isArray(history.meetings)) {
+                setMeetings(history.meetings);
+            } else {
+                setMeetings([]); // fallback
+            }
+        } catch (error) {
+            console.error("Failed to fetch meeting history", error);
+            setMeetings([]); // prevent .map crash
+        }
+    };
+
+    fetchHistory();
+}, []);
 
     let formatDate = (dateString) => {
 

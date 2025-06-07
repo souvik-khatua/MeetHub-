@@ -31,7 +31,9 @@ Authentication : OAuth
 Deployment:Render
 
 📷 Screenshots
-Add UI images or call previews here
+![App Screenshot](./frontend/src/assets/screenshot(282).png)
+![App Screenshot](./frontend/src/assets/screenshot(284).png)
+![App Screenshot](./frontend/src/assets/screenshot(285).png)
 
 🚧 Setup Instructions
 cd frontend
